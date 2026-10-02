@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<edges>
+
+    <!-- Top horizontal road -->
+    <edge id="N1_N2" from="N1" to="N2"
+          numLanes="1" speed="13.89"/>
+
+    <edge id="N2_N1" from="N2" to="N1"
+          numLanes="1" speed="13.89"/>
+
+    <!-- Bottom horizontal road -->
+    <edge id="N3_N4" from="N3" to="N4"
+          numLanes="1" speed="13.89"/>
+
+    <edge id="N4_N3" from="N4" to="N3"
+          numLanes="1" speed="13.89"/>
+
+    <!-- Left vertical road -->
+    <edge id="N1_N3" from="N1" to="N3"
+          numLanes="1" speed="13.89"/>
+
+    <edge id="N3_N1" from="N3" to="N1"
+          numLanes="1" speed="13.89"/>
+
+    <!-- Right vertical road -->
+    <edge id="N2_N4" from="N2" to="N4"
+          numLanes="1" speed="13.89"/>
+
+    <edge id="N4_N2" from="N4" to="N2"
+          numLanes="1" speed="13.89"/>
+
+</edges>

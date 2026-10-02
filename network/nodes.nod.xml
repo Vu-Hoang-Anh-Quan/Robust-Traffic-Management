@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nodes>
+    <!-- Northwest intersection -->
+    <node id="N1" x="0" y="200" type="priority"/>
+
+    <!-- Northeast intersection -->
+    <node id="N2" x="200" y="200" type="priority"/>
+
+    <!-- Southwest intersection -->
+    <node id="N3" x="0" y="0" type="priority"/>
+
+    <!-- Southeast intersection -->
+    <node id="N4" x="200" y="0" type="priority"/>
+</nodes>
