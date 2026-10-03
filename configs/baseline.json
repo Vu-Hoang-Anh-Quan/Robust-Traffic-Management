@@ -1,0 +1,151 @@
+{
+    "experiment": {
+        "name": "baseline",
+        "description": "2x2 fixed-time traffic network",
+        "seed": 42
+    },
+
+    "network": {
+        "topology": "2x2_grid",
+        "road_length_m": 200.0,
+        "lanes_per_direction": 1,
+        "speed_limit_mps": 13.89
+    },
+
+    "intersections": {
+        "N1": {
+            "type": "traffic_light",
+            "signal": {
+                "controller": "fixed_time",
+                "cycle_s": 60.0,
+                "offset_s": 0.0,
+
+                "phases": [
+                    {
+                        "name": "NS_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "NS_YELLOW",
+                        "duration_s": 3.0
+                    },
+                    {
+                        "name": "EW_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "EW_YELLOW",
+                        "duration_s": 3.0
+                    }
+                ]
+            }
+        },
+
+        "N2": {
+            "type": "traffic_light",
+            "signal": {
+                "controller": "fixed_time",
+                "cycle_s": 60.0,
+                "offset_s": 0.0,
+
+                "phases": [
+                    {
+                        "name": "NS_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "NS_YELLOW",
+                        "duration_s": 3.0
+                    },
+                    {
+                        "name": "EW_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "EW_YELLOW",
+                        "duration_s": 3.0
+                    }
+                ]
+            }
+        },
+
+        "N3": {
+            "type": "traffic_light",
+            "signal": {
+                "controller": "fixed_time",
+                "cycle_s": 60.0,
+                "offset_s": 0.0,
+
+                "phases": [
+                    {
+                        "name": "NS_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "NS_YELLOW",
+                        "duration_s": 3.0
+                    },
+                    {
+                        "name": "EW_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "EW_YELLOW",
+                        "duration_s": 3.0
+                    }
+                ]
+            }
+        },
+
+        "N4": {
+            "type": "traffic_light",
+            "signal": {
+                "controller": "fixed_time",
+                "cycle_s": 60.0,
+                "offset_s": 0.0,
+
+                "phases": [
+                    {
+                        "name": "NS_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "NS_YELLOW",
+                        "duration_s": 3.0
+                    },
+                    {
+                        "name": "EW_GREEN",
+                        "duration_s": 27.0
+                    },
+                    {
+                        "name": "EW_YELLOW",
+                        "duration_s": 3.0
+                    }
+                ]
+            }
+        }
+    },
+
+    "demand": {
+        "vehicle_type": "passenger",
+        "vehicles_per_hour_per_entry": 300.0,
+
+        "turning": {
+            "left": 0.20,
+            "straight": 0.60,
+            "right": 0.20
+        }
+    },
+
+    "simulation": {
+        "warmup_s": 300.0,
+        "duration_s": 1800.0,
+        "step_length_s": 1.0
+    },
+
+    "outputs": {
+        "tripinfo": true,
+        "summary": true,
+        "vehroute": true
+    }
+}

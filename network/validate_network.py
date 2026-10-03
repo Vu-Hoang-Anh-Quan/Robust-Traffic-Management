@@ -19,52 +19,50 @@ EXPECTED_EDGES = {
 }
 
 
-def main():
-    if not NETWORK_FILE.exists():
-        raise FileNotFoundError(
-            f"Network file does not exist: {NETWORK_FILE}"
-        )
+def validate_network():
+    try:
+        if not NETWORK_FILE.exists():
+            print(f"ERROR: Network file does not exist: {NETWORK_FILE}")
+            return False
 
-    tree = ET.parse(NETWORK_FILE)
-    root = tree.getroot()
+        tree = ET.parse(NETWORK_FILE)
+        root = tree.getroot()
 
-    junctions = {
-        junction.attrib["id"]
-        for junction in root.findall("junction")
-        if junction.attrib["id"] in EXPECTED_JUNCTIONS
-    }
+        junctions = {
+            junction.attrib["id"]
+            for junction in root.findall("junction")
+            if junction.attrib["id"] in EXPECTED_JUNCTIONS
+        }
 
-    edges = {
-        edge.attrib["id"]
-        for edge in root.findall("edge")
-        if edge.attrib["id"] in EXPECTED_EDGES
-    }
+        edges = {
+            edge.attrib["id"]
+            for edge in root.findall("edge")
+            if edge.attrib["id"] in EXPECTED_EDGES
+        }
 
-    print("Network validation")
-    print("==================")
-    print(f"Network file: {NETWORK_FILE}")
-    print(f"Expected junctions: {len(EXPECTED_JUNCTIONS)}")
-    print(f"Found junctions:    {len(junctions)}")
-    print(f"Expected edges:     {len(EXPECTED_EDGES)}")
-    print(f"Found edges:        {len(edges)}")
+        print("Network validation")
+        print("==================")
+        print(f"Network file: {NETWORK_FILE}")
+        print(f"Expected junctions: {len(EXPECTED_JUNCTIONS)}")
+        print(f"Found junctions:    {len(junctions)}")
+        print(f"Expected edges:     {len(EXPECTED_EDGES)}")
+        print(f"Found edges:        {len(edges)}")
 
-    if junctions != EXPECTED_JUNCTIONS:
-        missing = EXPECTED_JUNCTIONS - junctions
-        extra = junctions - EXPECTED_JUNCTIONS
-        raise AssertionError(
-            f"Junction mismatch. Missing={missing}, Extra={extra}"
-        )
+        if junctions != EXPECTED_JUNCTIONS:
+            missing = EXPECTED_JUNCTIONS - junctions
+            extra = junctions - EXPECTED_JUNCTIONS
+            print(f"ERROR: Junction mismatch. Missing={missing}, Extra={extra}")
+            return False
 
-    if edges != EXPECTED_EDGES:
-        missing = EXPECTED_EDGES - edges
-        extra = edges - EXPECTED_EDGES
-        raise AssertionError(
-            f"Edge mismatch. Missing={missing}, Extra={extra}"
-        )
+        if edges != EXPECTED_EDGES:
+            missing = EXPECTED_EDGES - edges
+            extra = edges - EXPECTED_EDGES
+            print(f"ERROR: Edge mismatch. Missing={missing}, Extra={extra}")
+            return False
 
-    print()
-    print("PASS: Network topology is correct.")
-
-
-if __name__ == "__main__":
-    main()
+        print()
+        print("PASS: Network topology is correct.")
+        return True
+    except Exception as e:
+        print(f"ERROR: Unexpected error during validation: {str(e)}")
+        return False

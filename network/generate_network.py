@@ -42,3 +42,26 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# Additional code to call validate_network.py and write metadata
+import json
+import sys
+from validate_network import validate_network
+
+metadata = {
+    "network_id": "2x2_grid",
+    "intersections": 4,
+    "directed_edges": 8,
+    "lanes_per_direction": 1,
+    "road_length_m": 200,
+    "speed_limit_mps": 13.89
+}
+
+if not validate_network():
+    print("Validation failed. Exiting.")
+    sys.exit(1)
+
+with open("network_metadata.json", "w") as f:
+    json.dump(metadata, f, indent=4)
+
+print("Network generated and validated successfully.")

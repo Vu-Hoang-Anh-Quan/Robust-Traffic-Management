@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2026-10-02T18:03:31.634125+07:00 by Eclipse SUMO netconvert 1.25.0
+<!-- generated on 2026-10-02T19:55:17.899406+07:00 by Eclipse SUMO netconvert 1.25.0
 <netconvertConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <node-files value="network/nodes.nod.xml"/>
-        <edge-files value="network/edges.edg.xml"/>
+        <node-files value="/home/Quan/Desktop/Robust-Traffic-Management/network/nodes.nod.xml"/>
+        <edge-files value="/home/Quan/Desktop/Robust-Traffic-Management/network/edges.edg.xml"/>
     </input>
 
     <output>
-        <output-file value="network/network.net.xml"/>
+        <output-file value="/home/Quan/Desktop/Robust-Traffic-Management/network/network.net.xml"/>
     </output>
 
 </netconvertConfiguration>
@@ -69,31 +69,44 @@
         <lane id="N4_N3_0" index="0" speed="13.89" length="193.60" shape="196.80,1.60 3.20,1.60"/>
     </edge>
 
-    <junction id="N1" type="priority" x="0.00" y="200.00" incLanes="N2_N1_0 N3_N1_0" intLanes=":N1_0_0 :N1_1_0" shape="3.20,203.20 3.20,196.80 -3.20,196.80 -2.49,200.36 -1.60,201.60 -0.36,202.49 1.24,203.02">
+    <tlLogic id="N1" type="static" programID="0" offset="0">
+        <phase duration="90" state="GG"/>
+    </tlLogic>
+    <tlLogic id="N2" type="static" programID="0" offset="0">
+        <phase duration="90" state="GG"/>
+    </tlLogic>
+    <tlLogic id="N3" type="static" programID="0" offset="0">
+        <phase duration="90" state="GG"/>
+    </tlLogic>
+    <tlLogic id="N4" type="static" programID="0" offset="0">
+        <phase duration="90" state="GG"/>
+    </tlLogic>
+
+    <junction id="N1" type="traffic_light" x="0.00" y="200.00" incLanes="N2_N1_0 N3_N1_0" intLanes=":N1_0_0 :N1_1_0" shape="3.20,203.20 3.20,196.80 -3.20,196.80 -2.49,200.36 -1.60,201.60 -0.36,202.49 1.24,203.02">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
-    <junction id="N2" type="priority" x="200.00" y="200.00" incLanes="N4_N2_0 N1_N2_0" intLanes=":N2_0_0 :N2_1_0" shape="203.20,196.80 196.80,196.80 196.80,203.20 200.36,202.49 201.60,201.60 202.49,200.36 203.02,198.76">
+    <junction id="N2" type="traffic_light" x="200.00" y="200.00" incLanes="N4_N2_0 N1_N2_0" intLanes=":N2_0_0 :N2_1_0" shape="203.20,196.80 196.80,196.80 196.80,203.20 200.36,202.49 201.60,201.60 202.49,200.36 203.02,198.76">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
-    <junction id="N3" type="priority" x="0.00" y="0.00" incLanes="N1_N3_0 N4_N3_0" intLanes=":N3_0_0 :N3_1_0" shape="-3.20,3.20 3.20,3.20 3.20,-3.20 -0.36,-2.49 -1.60,-1.60 -2.49,-0.36 -3.02,1.24">
+    <junction id="N3" type="traffic_light" x="0.00" y="0.00" incLanes="N1_N3_0 N4_N3_0" intLanes=":N3_0_0 :N3_1_0" shape="-3.20,3.20 3.20,3.20 3.20,-3.20 -0.36,-2.49 -1.60,-1.60 -2.49,-0.36 -3.02,1.24">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
-    <junction id="N4" type="priority" x="200.00" y="0.00" incLanes="N2_N4_0 N3_N4_0" intLanes=":N4_0_0 :N4_1_0" shape="196.80,3.20 203.20,3.20 202.49,-0.36 201.60,-1.60 200.36,-2.49 198.76,-3.02 196.80,-3.20">
+    <junction id="N4" type="traffic_light" x="200.00" y="0.00" incLanes="N2_N4_0 N3_N4_0" intLanes=":N4_0_0 :N4_1_0" shape="196.80,3.20 203.20,3.20 202.49,-0.36 201.60,-1.60 200.36,-2.49 198.76,-3.02 196.80,-3.20">
         <request index="0" response="00" foes="00" cont="0"/>
         <request index="1" response="00" foes="00" cont="0"/>
     </junction>
 
-    <connection from="N1_N2" to="N2_N4" fromLane="0" toLane="0" via=":N2_1_0" dir="r" state="M"/>
-    <connection from="N1_N3" to="N3_N4" fromLane="0" toLane="0" via=":N3_0_0" dir="l" state="M"/>
-    <connection from="N2_N1" to="N1_N3" fromLane="0" toLane="0" via=":N1_0_0" dir="l" state="M"/>
-    <connection from="N2_N4" to="N4_N3" fromLane="0" toLane="0" via=":N4_0_0" dir="r" state="M"/>
-    <connection from="N3_N1" to="N1_N2" fromLane="0" toLane="0" via=":N1_1_0" dir="r" state="M"/>
-    <connection from="N3_N4" to="N4_N2" fromLane="0" toLane="0" via=":N4_1_0" dir="l" state="M"/>
-    <connection from="N4_N2" to="N2_N1" fromLane="0" toLane="0" via=":N2_0_0" dir="l" state="M"/>
-    <connection from="N4_N3" to="N3_N1" fromLane="0" toLane="0" via=":N3_1_0" dir="r" state="M"/>
+    <connection from="N1_N2" to="N2_N4" fromLane="0" toLane="0" via=":N2_1_0" tl="N2" linkIndex="1" dir="r" state="O"/>
+    <connection from="N1_N3" to="N3_N4" fromLane="0" toLane="0" via=":N3_0_0" tl="N3" linkIndex="0" dir="l" state="O"/>
+    <connection from="N2_N1" to="N1_N3" fromLane="0" toLane="0" via=":N1_0_0" tl="N1" linkIndex="0" dir="l" state="O"/>
+    <connection from="N2_N4" to="N4_N3" fromLane="0" toLane="0" via=":N4_0_0" tl="N4" linkIndex="0" dir="r" state="O"/>
+    <connection from="N3_N1" to="N1_N2" fromLane="0" toLane="0" via=":N1_1_0" tl="N1" linkIndex="1" dir="r" state="O"/>
+    <connection from="N3_N4" to="N4_N2" fromLane="0" toLane="0" via=":N4_1_0" tl="N4" linkIndex="1" dir="l" state="O"/>
+    <connection from="N4_N2" to="N2_N1" fromLane="0" toLane="0" via=":N2_0_0" tl="N2" linkIndex="0" dir="l" state="O"/>
+    <connection from="N4_N3" to="N3_N1" fromLane="0" toLane="0" via=":N3_1_0" tl="N3" linkIndex="1" dir="r" state="O"/>
 
     <connection from=":N1_0" to="N1_N3" fromLane="0" toLane="0" dir="l" state="M"/>
     <connection from=":N1_1" to="N1_N2" fromLane="0" toLane="0" dir="r" state="M"/>

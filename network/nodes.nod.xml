@@ -2,14 +2,14 @@
 
 <nodes>
     <!-- Northwest intersection -->
-    <node id="N1" x="0" y="200" type="priority"/>
+    <node id="N1" x="0" y="200" type="traffic_light"/>
 
     <!-- Northeast intersection -->
-    <node id="N2" x="200" y="200" type="priority"/>
+    <node id="N2" x="200" y="200" type="traffic_light"/>
 
     <!-- Southwest intersection -->
-    <node id="N3" x="0" y="0" type="priority"/>
+    <node id="N3" x="0" y="0" type="traffic_light"/>
 
     <!-- Southeast intersection -->
-    <node id="N4" x="200" y="0" type="priority"/>
+    <node id="N4" x="200" y="0" type="traffic_light"/>
 </nodes>
